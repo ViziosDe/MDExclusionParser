@@ -12,7 +12,8 @@ Simply run the script or invoke it directly from GitHub via:
 ```
 PS > powershell -Exec Bypas -NoProfile -c "(New-Object Net.WebClient).DownloadString('<URL>') | iex"
 ```
-![image](https://github.com/ViziosDe/MDExclusionParser/assets/23127806/e6cee598-9c7e-49ad-8878-b0975dc14218)
+
+![image](https://github.com/ViziosDe/MDExclusionParser/assets/23127806/d8fdcbcb-79af-49ed-acfb-8f85b9f59f43)
 
 ## Background:
 Commands like Get-MpPreference do not display Defender/ASR Exclusions and ASR Rule Configuration anymore for low priviledged Users. 
