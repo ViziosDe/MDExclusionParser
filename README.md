@@ -10,7 +10,7 @@ MDExclusionParser is a PowerShell script to quickly scan Event Log ID 5007 and 1
 Simply run the script or invoke it directly from GitHub via:
 
 ```
-PS > powershell -Exec Bypas -NoProfile -c "(New-Object Net.WebClient).DownloadString('<URL>') | iex"
+PS > powershell -Exec Bypass -NoProfile -c "(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/ViziosDe/MDExclusionParser/main/Invoke-MDExclusionParser.ps1') | iex"
 ```
 
 ![image](https://github.com/ViziosDe/MDExclusionParser/assets/23127806/d8fdcbcb-79af-49ed-acfb-8f85b9f59f43)
