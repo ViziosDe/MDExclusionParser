@@ -210,9 +210,9 @@ function Get-DefenderExclusions{
 
 Write-Host "`r`n"
 Write-Host "MDExclusionParser`r`n"
-Write-Host "Credit: ViziosDe (https://twitter.com/ViziosDe)`r`n"
+Write-Host "Credit: ViziosDe (https://x.com/ViziosDe)`r`n"
 Write-Host "Acknowledgements:"
-Write-Host "`t- Lawrence (https://twitter.com/zux0x3a)"
+Write-Host "`t- Lawrence (https://x.com/zux0x3a)"
 Write-Host "`t- VakninHai (https://x.com/VakninHai/status/1796628601535652289)"
 Write-Host "`r`n"
 
