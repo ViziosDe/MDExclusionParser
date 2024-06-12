@@ -24,5 +24,5 @@ This allows for querying those Event IDs from a low privileged User context and 
 This tool relies solely on Events being present in the Event Log.
 
 ## Acknowledgements:
-- Lawrence (https://twitter.com/zux0x3a)
+- Lawrence (https://x.com/zux0x3a)
 - VakninHai (https://x.com/VakninHai/status/1796628601535652289)
