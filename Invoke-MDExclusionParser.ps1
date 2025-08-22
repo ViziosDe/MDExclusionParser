@@ -49,8 +49,17 @@ function Get-ASRConfiguration{
     $events = Get-WinEvent -FilterHashtable @{LogName=$LogName; Id=$EventIDASRRules}
     $asrEvents = $events | Where-Object { $_.Message -match "Windows Defender Exploit Guard\\ASR\\Rules"}
 
-    $eventsTriggeredASR = Get-WinEvent -FilterHashtable @{LogName=$LogName; Id=$EventIDTriggeredASRRules}
-    $asrTriggeredEvents = $eventsTriggeredASR | Where-Object { $_.Message -match "Microsoft Defender Exploit Guard has blocked an operation"}
+    # Try to get the events without throwing a terminating error
+    $eventsTriggeredASR = Get-WinEvent -FilterHashtable @{LogName=$LogName; Id=$EventIDTriggeredASRRules} -ErrorAction SilentlyContinue
+    
+    if ($null -ne $eventsTriggeredASR -and $eventsTriggeredASR.Count -gt 0) {
+        $asrTriggeredEvents = $eventsTriggeredASR | Where-Object { $_.Message -match "Microsoft Defender Exploit Guard has blocked an operation" }
+        Write-Host "[i] Found $($asrTriggeredEvents.Count) ASR triggered events."
+    }
+    else {
+        Write-Host "[i] No ASR Rules found in Event Log."
+        return
+    }
 
     $asrExclusionEvents = $events | Where-Object { $_.Message -match "New value:(.+)\\ASR\\ASROnlyPerRuleExclusions\\[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"}
 
@@ -221,3 +230,4 @@ Write-Host "[i] Parsing for Defender Exclusions`r`n" -f Green
 Get-DefenderExclusions
 Write-Host "[i] Parsing for ASR Configuration`r`n" -f Green
 Get-ASRConfiguration
+
